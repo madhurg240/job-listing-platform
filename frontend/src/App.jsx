@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
-import API from "./services/api";
+import axios from "axios";
 import SearchBar from "./components/searchBar";
 import JobList from "./components/jobList";
 import JobDetails from "./components/jobDetails";
+
+const API = import.meta.env.VITE_BACKEND_URL;
 
 function App() {
   const [jobs, setJobs] = useState([]);
@@ -11,10 +13,10 @@ function App() {
   const fetchJobs = async (location = "") => {
     try {
       const url = location
-        ? `/api/jobs?location=${location}`
-        : `/api/jobs`;
+        ? `${API}/api/jobs?location=${location}`
+        : `${API}/api/jobs`;
 
-      const res = await API.get(url);
+      const res = await axios.get(url);
       setJobs(res.data);
       setSelectedJob(res.data[0] || null);
     } catch (error) {
