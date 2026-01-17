@@ -152,3 +152,10 @@ PORT=5000
 
 ### 🏠 Home Page
 ![Home Page](screenshots/home.png)
+
+
+- **Frontend (Vercel):**  
+ https://job-listing-platform-c8ct5aqor-madhurg240s-projects.vercel.app/
+
+- **Backend (Render):**  
+https://job-listing-platform-k4ko.onrender.com/
