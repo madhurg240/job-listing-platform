@@ -4,6 +4,9 @@ import SearchBar from "./components/searchBar";
 import JobList from "./components/jobList";
 import JobDetails from "./components/jobDetails";
 
+// Backend base URL from Vercel environment variable
+const API = import.meta.env.VITE_BACKEND_URL;
+
 function App() {
   const [jobs, setJobs] = useState([]);
   const [selectedJob, setSelectedJob] = useState(null);
@@ -11,8 +14,8 @@ function App() {
   const fetchJobs = async (location = "") => {
     try {
       const url = location
-        ? `http://localhost:5000/api/jobs?location=${location}`
-        : `http://localhost:5000/api/jobs`;
+        ? `${API}/api/jobs?location=${location}`
+        : `${API}/api/jobs`;
 
       const res = await axios.get(url);
       setJobs(res.data);
