@@ -6,8 +6,13 @@ const app = express();
 
 // middlewares
 app.use(cors());
+import cors from "cors";
+
 app.use(cors({
-  origin: "https://your-project.vercel.app",
+  origin: [
+    "http://localhost:5173",
+    "https://job-listing-platform-rq9c.vercel.app/"
+  ],
   credentials: true
 }));
 
